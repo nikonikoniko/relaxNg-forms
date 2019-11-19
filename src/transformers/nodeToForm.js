@@ -5,16 +5,12 @@ const {
   values,
 } = require('lodash/fp');
 
-const {matches} = require('z');
-const definitions = require('../mappers/definitions.js');
-
-const nodeName = get('attributes.0.value');
-
-const optional = node => matches(node).call(
-  {definitions},
-  (x = definitions.optional) => true,
-  (x) => false
-);
+const {
+  nodeName,
+  isOptionalNode,
+  tagName,
+  choiceValue,
+} = require('../mappers/elements.js');
 
 const funks = {
   define: (node, inject) =>
@@ -53,7 +49,7 @@ const funks = {
     return `<ref> <h4>${refFor}</h4> <br /> ${parseRng(definition)} </ref>`;
   },
   input: (node, inject) => {
-    const opt = optional(node.parentNode.parentNode);
+    const opt = isOptionalNode(node.parentNode.parentNode);
     return `${opt ? 'i am optional!!!' : 'required'}<input type='text' class='form-control'>${inject.join('<br />')}</input>`;
   },
   decimal: (node, inject) =>
@@ -69,21 +65,21 @@ const funks = {
     inject.join('/n')
   ,
   value: (node, inject) => {
-    const choiceVal = get('childNodes.0.nodeValue', node);
+    const choiceVal = choiceValue(node);
     return `<option value='${choiceVal}'>${choiceVal}</option>`;
   },
   namedElement: (node, inject) => {
-    const elname = get('attributes.0.value', node);
+    const elname = nodeName(node);
     return `<${elname}>${elname}<br />${inject.join('<br />')}</${elname}>`;
   },
   attribute: (node, inject) => {
-    const elname = get('attributes.0.value', node);
+    const elname = nodeName(node);
     return `<attribute>${elname} - ${inject.join('<br />')}</attribute>`;
   },
   default: (node, inject) => {
     console.log(node);
     console.log(node.tagName);
-    console.error(`above node element ${node.tagName} NOT FOUND in definitions!!!!`);
+    console.error(`above node element "${node.tagName}" NOT FOUND in definitions!!!!`);
     return `<<?>>${inject.join('<br />')}`;
   },
 };
