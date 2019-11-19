@@ -3,11 +3,10 @@ const {DOMParser} = require('xmldom');
 
 
 const {
-  parseDotPath,
   parseRng,
 } = require('./parsers.js');
 
-const f = fs.readFileSync('../schema/0.02/schema.rng', 'utf8');
+const f = fs.readFileSync('../../schema.rng', 'utf8');
 const parser = new DOMParser();
 const document = parser.parseFromString(f, 'text/xml');
 const define = document.getElementsByTagName('start');

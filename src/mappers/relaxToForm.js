@@ -2,12 +2,12 @@
 // matches.js
 
 const { matches } = require('z');
-const transforms = require('./transformRng.js');
+const transforms = require('../transformers/nodeToForm.js');
 const definitions = require('./definitions.js');
 
 // destructure the domparser data structure FROM schema.rng form TO valid html form
 // as described by schema
-const nodeMatches = (node) =>
+const mapForm = (node) =>
   matches(node).call(
     {definitions}, // z requires vars in matches to be explicitly passed to the context
     (x = definitions.definition) => transforms.define,
@@ -30,5 +30,5 @@ const nodeMatches = (node) =>
   );
 
 module.exports = {
-  nodeMatches,
+  mapForm,
 };

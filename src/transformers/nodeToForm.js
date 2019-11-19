@@ -6,7 +6,7 @@ const {
 } = require('lodash/fp');
 
 const {matches} = require('z');
-const definitions = require('./definitions.js');
+const definitions = require('../mappers/definitions.js');
 
 const nodeName = get('attributes.0.value');
 const optional = node => matches(node).call(
@@ -46,7 +46,7 @@ const funks = {
     const {
       parseDotPath,
       parseRng,
-    } = require('./parsers.js'); // eslint-disable-line
+    } = require('../parsers.js'); // eslint-disable-line
     // the above require must be there otherwise there is a circular
     // dependency.  since the whole lib is recursive by nature, we need it.
     return `<ref> <h4>${refFor}</h4> <br /> ${parseRng(definition)} </ref>`;

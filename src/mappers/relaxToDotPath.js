@@ -14,7 +14,7 @@ const {
 
 // destructure the domparser data structure FROM html form TO valid xml
 // as described by schema
-const pathMatches = (node) =>
+const mapDot = (node) =>
   matches(node).call(
     {definition, namedElement},
     (x = definition) => '',
@@ -23,5 +23,5 @@ const pathMatches = (node) =>
   );
 
 module.exports = {
-  pathMatches,
+  mapDot,
 };
