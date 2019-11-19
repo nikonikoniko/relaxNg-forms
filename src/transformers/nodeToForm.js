@@ -9,6 +9,7 @@ const {matches} = require('z');
 const definitions = require('../mappers/definitions.js');
 
 const nodeName = get('attributes.0.value');
+
 const optional = node => matches(node).call(
   {definitions},
   (x = definitions.optional) => true,
