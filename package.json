@@ -9,7 +9,6 @@
   "author": "niko@niko.io",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.7.1",
     "lodash": "^4.17.15",
     "xmldom": "^0.1.27",
     "z": "^1.0.9"
