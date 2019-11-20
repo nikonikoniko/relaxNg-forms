@@ -11,7 +11,7 @@ const {
   tagName,
   choiceValue,
   inputName,
-} = require('../mappers/elements.js');
+} = require('../elements.js');
 
 const funks = {
   define: (node, inject) =>
@@ -41,13 +41,10 @@ const funks = {
     const defs = values(dom.getElementsByTagName('define'));
     const definition = find(x => get('attributes.0.value', x) === refFor, defs);
     if (!definition) return `<h5>REF NOT FOUND FOR ${refFor}</h5>`;
-    const {
-      parseDotPath,
-      parseRng,
-    } = require('../parsers.js'); // eslint-disable-line
+    const parseSchema = require('./index.js'); // eslint-disable-line
     // the above require must be there otherwise there is a circular
     // dependency.  since the whole lib is recursive by nature, we need it.
-    return `<ref> <h4>${refFor}</h4> <br /> ${parseRng(definition)} </ref>`;
+    return `<ref> <h4>${refFor}</h4> <br /> ${parseSchema(definition)} </ref>`;
   },
   input: (node, inject) => {
     const opt = isOptionalNode(node.parentNode.parentNode);

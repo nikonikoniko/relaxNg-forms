@@ -1,19 +1,19 @@
-const {
+import {
   values,
   curry,
   map,
   filter,
   has,
-} = require('lodash/fp');
+} from 'lodash/fp';
 
-const walkDOMUp = curry((transformFunc, node) => {
+export const walkDOMUp = curry((transformFunc, node) => {
   if (!node) return '';
   if (!node.parentNode) return '';
   const p = walkDOMUp(transformFunc, node.parentNode);
   return transformFunc(node, p);
 });
 
-const walkDOMDown = curry((transformFunc, node) => {
+export const walkDOMDown = curry((transformFunc, node) => {
   const filterchildren = filter(has('tagName'));
   const children =
     node.hasChildNodes ?
@@ -24,7 +24,7 @@ const walkDOMDown = curry((transformFunc, node) => {
   return transformFunc(node, children);
 });
 
-module.exports = {
+export default {
   walkDOMUp,
   walkDOMDown,
 };

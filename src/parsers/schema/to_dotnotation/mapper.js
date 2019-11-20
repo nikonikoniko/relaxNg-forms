@@ -9,12 +9,12 @@ const {
 const {
   definition,
   namedElement,
-} = require('./definitions.js');
+} = require('../definitions.js');
 
 
 // destructure the domparser data structure FROM html form TO valid xml
 // as described by schema
-const mapDot = (node) =>
+export const map = (node) =>
   matches(node).call(
     {definition, namedElement},
     (x = definition) => '',
@@ -22,6 +22,6 @@ const mapDot = (node) =>
     (x) => ''
   );
 
-module.exports = {
-  mapDot,
+export default {
+  map,
 };
