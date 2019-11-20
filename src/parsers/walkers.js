@@ -2,6 +2,7 @@ import {
   values,
   curry,
   map,
+  get,
   filter,
   has,
 } from 'lodash/fp';
@@ -14,9 +15,9 @@ export const walkDOMUp = curry((transformFunc, node) => {
 });
 
 export const walkDOMDown = curry((transformFunc, node) => {
-  const filterchildren = filter(has('tagName'));
+  const filterchildren = filter(get('tagName'));
   const children =
-    node.hasChildNodes ?
+        values(node.childNodes) ?
       map(
         walkDOMDown(transformFunc),
         filterchildren(values(node.childNodes))

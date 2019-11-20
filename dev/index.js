@@ -7,11 +7,6 @@ const {
 const {schema2form, form2xml} = require('../src/parsers');
 const {convert} = require('../src/parsers/schema/createDom');
 
-console.log(schema2form);
-console.log('llllllllllll');
-
-console.log('hello');
-
 const example = `<start>
 <element name="book" xmlns="http://relaxng.org/ns/structure/1.0">
    <oneOrMore>
@@ -55,6 +50,7 @@ form.addEventListener('change', (e) => {
   const j = form2xml(form);
   console.log(j);
   console.log('aaaaaaaaaaaaaaaaaaaaa');
+  result.innerHTML = j;
 });
 
 
