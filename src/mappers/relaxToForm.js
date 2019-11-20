@@ -5,8 +5,6 @@ const { matches } = require('z');
 const transforms = require('../transformers/nodeToForm.js');
 const definitions = require('./definitions.js');
 
-console.log('cxxx');
-
 // destructure the domparser data structure FROM schema.rng form TO valid html form
 // as described by schema
 const mapForm = (node) =>

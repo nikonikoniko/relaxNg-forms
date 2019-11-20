@@ -22,16 +22,12 @@ const schema = document.getElementById('schema');
 const form = document.getElementById('form');
 const result = document.getElementById('result');
 
-console.log('oooooo')
-console.log(schema)
 
 schema.value = example;
 form.innerHTML = r;
 
 schema.onkeyup = function(e) {
   const newschema = e.target.value;
-  console.log(e.target.value);
   const r = parseRng(convert(newschema));
-  console.log(r);
   form.innerHTML = r;
 };

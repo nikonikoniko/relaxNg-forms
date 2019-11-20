@@ -14,7 +14,7 @@ const transformRngToDot = (node, parents) => {
 
 const transformRngToNode = (node, inject) => {
   const transformFunction = mapForm(node);
-  console.log(walkDOMUp(parseDotPath, node));
+  // console.log(walkDOMUp(parseDotPath, node));
   return transformFunction(node, inject);
 };
 
