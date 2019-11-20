@@ -14,11 +14,20 @@ const {
 } = require('../elements.js');
 
 const funks = {
+  namedElement: (node, inject) => {
+    const elname = nodeName(node);
+    return `<${elname}>${inject.join('\n')}</${elname}>\n`;
+  },
+  formfield: (node, inject) => {
+    const val = node.value || '';
+    return `${val}\n`;
+  },
   default: (node, inject) => {
-    console.log(node);
+    console.log([node]);
     console.log(node.tagName);
-    console.error(`above node element "${node.tagName}" NOT FOUND in definitions!!!!`);
-    return `<<?>>${inject.join('<br />')}`;
+    console.error(`above nnode element "${node.tagName}" NOT FOUND in definitions!!!!`);
+    const val = node.value || '';
+    return inject.join('\n');
   },
 };
 

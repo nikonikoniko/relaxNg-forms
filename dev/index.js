@@ -1,8 +1,11 @@
+/* global hljs */
 const {
   each,
   reduce,
   tail,
 } = require('lodash/fp');
+
+import Prism from 'prismjs';
 
 const {schema2form, form2xml} = require('../src/parsers');
 const {convert} = require('../src/parsers/schema/createDom');
@@ -43,6 +46,19 @@ const result = document.getElementById('result');
 
 const form = document.querySelector('#form');
 
+
+
+function escapeHtml(unsafe) {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+         // .replace(/'/g, "&#039;");
+ }
+
+
+
 form.addEventListener('change', (e) => {
   console.log(form);
   const h = form.getElementsByTagName('textarea');
@@ -50,7 +66,8 @@ form.addEventListener('change', (e) => {
   const j = form2xml(form);
   console.log(j);
   console.log('aaaaaaaaaaaaaaaaaaaaa');
-  result.innerHTML = j;
+  const high = Prism.highlight(j, Prism.languages.xml, 'xml');
+  result.innerHTML = high;
 });
 
 

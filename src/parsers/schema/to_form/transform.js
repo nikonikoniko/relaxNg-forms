@@ -41,7 +41,7 @@ const funks = {
     const defs = values(dom.getElementsByTagName('define'));
     const definition = find(x => get('attributes.0.value', x) === refFor, defs);
     if (!definition) return `<h5>REF NOT FOUND FOR ${refFor}</h5>`;
-    const parseSchema = require('./index.js'); // eslint-disable-line
+    const {parseSchema} = require('./index.js'); // eslint-disable-line
     // the above require must be there otherwise there is a circular
     // dependency.  since the whole lib is recursive by nature, we need it.
     return `<ref> <h4>${refFor}</h4> <br /> ${parseSchema(definition)} </ref>`;
@@ -68,7 +68,7 @@ const funks = {
   },
   namedElement: (node, inject) => {
     const elname = nodeName(node);
-    return `<${elname}>${elname}<br />${inject.join('<br />')}</${elname}>`;
+    return `<element name='${elname}'>${elname}<br />${inject.join('<br />')}</element>`;
   },
   attribute: (node, inject) => {
     const elname = nodeName(node);

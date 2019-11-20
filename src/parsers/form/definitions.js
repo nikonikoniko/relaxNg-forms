@@ -9,15 +9,15 @@ const definitions = {
   // as an example: if a node has a tagname of 'element' and attr 'name'
   // then we define it as a namedElement
   namedElement: {
-    tagName: 'element',
+    tagName: 'ELEMENT',
     attributes: {
       0: {
         name: 'name',
       },
     },
   },
-  element: {
-    tagName: 'element',
+  textarea: {
+    tagName: 'TEXTAREA',
   },
   oneOrMore: {
     tagName: 'oneOrMore',
