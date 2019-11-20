@@ -1,5 +1,8 @@
 
-const {DOMParser} = require('xmldom');
+const {
+  DOMParser,
+  DOMImplementation,
+} = require('xmldom');
 
 const convert = xmlStr => {
   const parser = new DOMParser();
@@ -8,6 +11,14 @@ const convert = xmlStr => {
   return start || document.firstChild;
 };
 
+const create = () => {
+  const doc = document.implementation.createDocument("", "", null);
+  console.log(doc);
+  console.log('fuuuuuuuuuu');
+  return doc;
+};
+
 module.exports =  {
   convert,
+  create,
 };

@@ -10,6 +10,7 @@ const {
   isOptionalNode,
   tagName,
   choiceValue,
+  inputName,
 } = require('../mappers/elements.js');
 
 const funks = {
@@ -32,7 +33,7 @@ const funks = {
     `<optional>${inject.join('<br />')}</optional>`
   ,
   text: (node, inject) =>
-    `<textarea class='form-control'>${inject.join('<br />')}</textarea>`
+    `<textarea class='form-control' name='${inputName(node)}'>${inject.join('<br />')}</textarea>`
   ,
   ref: (node, inject) => {
     const refFor = nodeName(node);
