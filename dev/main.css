@@ -1,5 +1,19 @@
-.main {
-    /* Reference an image file */
-    background: url('./images/background.png');
-    color: red;
+body {
+    background-color: linen;
+}
+oneOrMore, zeroOrMore {
+	  margin-left: 1em;
+	  padding: 1em;
+	  display: block;
+	  border: 1px solid grey;
+}
+
+h1 {
+    color: maroon;
+    margin-left: 40px;
+}
+
+
+#schema{
+    height: 100vh;
 }
