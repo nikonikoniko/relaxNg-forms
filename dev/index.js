@@ -3,9 +3,7 @@ const {convert} = require('../src/createDom');
 
 console.log('hello');
 
-const example = `
-
-<start>
+const example = `<start>
 <element name="book" xmlns="http://relaxng.org/ns/structure/1.0">
    <oneOrMore>
       <element name="page">
