@@ -21,6 +21,7 @@ const walkDOMDown = curry((transformFunc, node) => {
         walkDOMDown(transformFunc),
         filterchildren(values(node.childNodes))
       ) : null;
+  console.log('transforming node', node.tagName);
   return transformFunc(node, children);
 });
 

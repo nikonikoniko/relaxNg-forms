@@ -1,4 +1,4 @@
 ## browser based development environment
 
 `npm run dev`
- spins up a parcel bundler at a url
+ spins up a webpack bundler at a url
