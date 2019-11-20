@@ -4,7 +4,8 @@
   "description": "convert relaxng schemas into bootstrap webforms",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "$(npm bin)/parcel dev/index.html"
   },
   "author": "niko@niko.io",
   "license": "ISC",
@@ -27,6 +28,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-lodash-fp": "^2.2.0-a1",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-vue": "^5.2.2"
+    "eslint-plugin-vue": "^5.2.2",
+    "parcel-bundler": "^1.12.4"
   }
 }
