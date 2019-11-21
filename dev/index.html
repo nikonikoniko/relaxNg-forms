@@ -10,21 +10,32 @@
 <body>
 
   <div class = 'container-fluid'>
+    <div class='row titlerow'>
+      <div class='col-4'>
+         Editable Schema
+      </div>
+      <div class='col-4'>
+         Form from schema
+      </div>
+      <div class='col-4'>
+         xml from form
+      </div>
+    </div>
     <div class ='row'>
-      <div class = 'col-4'>
+      <div class = 'col-4 entrycol'>
         <textarea
           id="schema"
           class="form-control"
           >
         </textarea>
       </div>
-      <div class='col-4'>
+      <div class='col-4 formcol'>
         <form id="form" action="javascript:0">
           <div id="xmlForm" >
             </div>
         </form>
       </div>
-      <div class='col-4'>
+      <div class='col-4 resultcol'>
         <pre>
         <code id="result" >
         </code>

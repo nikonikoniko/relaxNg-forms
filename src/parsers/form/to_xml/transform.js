@@ -4,6 +4,7 @@ const {
   find,
   values,
   tail,
+  map,
 } = require('lodash/fp');
 
 const {
@@ -17,7 +18,10 @@ const {
 const funks = {
   namedElement: (node, inject) => {
     const elname = nodeName(node);
-    return `<${elname}>${inject.join('')}</${elname}>`;
+    const attributes = tail(node.attributes)
+    const attributeStr = map(x => `${x.name}=${x.value}`);
+    const attrs = attributeStr(attributes);
+    return `<${elname} ${attrs}>${inject.join('')}</${elname}>`;
   },
   formfield: (node, inject) => {
     const val = node.value || '';
@@ -25,6 +29,12 @@ const funks = {
   },
   zeroOrMore: (node, inject) => {
     return tail(inject).join('');
+  },
+  attribute: (node, inject) => {
+    const n = nodeName(node);
+    const v = get('children.0.value', node);
+    node.parentNode.setAttribute(n, v);
+    return '';
   },
   nothing: (node, inject) =>
     inject.join(''),

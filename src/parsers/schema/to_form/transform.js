@@ -26,7 +26,7 @@ const funks = {
     `<h1>omg we have a product</h1><product>${inject.join('<br />')}</product>`
   ,
   element: (node, inject) =>
-    `<element>${inject.join('<br />')}</element>`
+    `<element>${inject.join('')}</element>`
   ,
   clonable: (name) => {
     return `<button
@@ -85,17 +85,19 @@ const funks = {
   },
   namedElement: (node, inject) => {
     const elname = nodeName(node);
-    return `<element name='${elname}'>${elname}<br />${inject.join('<br />')}</element>`;
+    const opt = isOptionalNode(node.parentNode);
+    return `<element name='${elname}'><h5>${elname}${!opt ? '*' : ''}</h5>${inject.join('')}</element>`;
   },
   attribute: (node, inject) => {
     const elname = nodeName(node);
-    return `<attribute>${elname} - ${inject.join('<br />')}</attribute>`;
+    const opt = isOptionalNode(node.parentNode);
+    return `<attribute name="${elname}"><h5>${elname}${!opt ? '*' : ''}</h5>${inject.join('')}</attribute>`;
   },
   default: (node, inject) => {
     console.log(node);
     console.log(node.tagName);
     console.error(`above node element "${node.tagName}" NOT FOUND in definitions!!!!`);
-    return `<<?>>${inject.join('<br />')}`;
+    return `?${node.tagName}?${inject.join('')}`;
   },
 };
 

@@ -13,6 +13,7 @@ export const map = (node) =>
     (x = definitions.attribute) => transforms.attribute,
     (x = definitions.textarea) => transforms.formfield,
     (x = definitions.input) => transforms.formfield,
+    (x = definitions.data) => transforms.formfield,
     (x = definitions.select) => transforms.formfield,
     (x = definitions.zeroOrMore) => transforms.zeroOrMore,
     (x = definitions.namedElement) => transforms.namedElement,
@@ -21,6 +22,10 @@ export const map = (node) =>
     (x = definitions.oneOrMore) => transforms.nothing,
     (x = definitions.button) => transforms.nothing,
     (x = definitions.optional) => transforms.nothing,
+    (x = definitions.h4) => transforms.nothing,
+    (x = definitions.option) => transforms.nothing,
+    (x = definitions.ref) => transforms.nothing,
+    (x = definitions.attribute) => transforms.attribute,
     (x = definitions.form) => transforms.nothing,
     (x) => transforms.default
   );

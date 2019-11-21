@@ -12,9 +12,6 @@ const {convert} = require('../src/parsers/schema/createDom');
 const example = `<start>
 <element name="book" xmlns="http://relaxng.org/ns/structure/1.0">
        <element name="firstpage">
-          <element name="number">
-            <text/>
-          </element>
          <optional>
            <element name="text">
               <text/>
@@ -22,10 +19,10 @@ const example = `<start>
          </optional>
       </element>
    <oneOrMore>
-            <element name="page">
-          <element name="number">
+      <element name="page">
+          <attribute name="number">
             <text/>
-          </element>
+          </attribute>
          <element name="text">
             <text/>
          </element>
@@ -72,14 +69,16 @@ const prettyXml = (xml) => {
   return normalized;
 };
 
-form.addEventListener('change', (e) => {
-  form.checkValidity();
-  form.reportValidity();
+form.addEventListener('keyup', (e) => {
   form.submit();
   const xml = form2xml(form);
   result.innerHTML = prettyXml(xml);
 });
-
+form.addEventListener('focusout', (e) => {
+  form.checkValidity();
+  // form.reportValidity();
+  form.submit();
+});
 
 schema.value = example;
 xmlForm.innerHTML = r;

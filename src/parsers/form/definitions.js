@@ -3,8 +3,8 @@
 // thought of as: "if a node has these elements in this format, then it is a [key]"
 
 const definitions = {
-  definition: {
-    tagName: 'define',
+  attribute: {
+    tagName: 'ATTRIBUTE',
   },
   br: {
     tagName: 'BR',
@@ -23,6 +23,18 @@ const definitions = {
   },
   form: {
     tagName: 'FORM',
+  },
+  h4: {
+    tagName: 'H4',
+  },
+  option: {
+    tagName: 'OPTION',
+  },
+  ref: {
+    tagName: 'REF',
+  },
+  data: {
+    tagName: 'DATA',
   },
   // as an example: if a node has a tagname of 'element' and attr 'name'
   // then we define it as a namedElement
