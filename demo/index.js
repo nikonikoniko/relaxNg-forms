@@ -72,6 +72,7 @@ const prettyXml = (xml) => {
 form.addEventListener('keyup', (e) => {
   form.submit();
   const xml = form2xml(form);
+  console.log(xml);
   result.innerHTML = prettyXml(xml);
 });
 form.addEventListener('focusout', (e) => {

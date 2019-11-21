@@ -19,7 +19,7 @@ const funks = {
   namedElement: (node, inject) => {
     const elname = nodeName(node);
     const attributes = tail(node.attributes)
-    const attributeStr = map(x => `${x.name}=${x.value}`);
+    const attributeStr = map(x => `${x.name}="${x.value}"`);
     const attrs = attributeStr(attributes);
     return `<${elname} ${attrs}>${inject.join('')}</${elname}>`;
   },
