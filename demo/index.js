@@ -93,6 +93,7 @@ form.addEventListener('focusout', (e) => {
 
 schema.value = example;
 xmlForm.innerHTML = r;
+result.innerHTML = prettyXml(form2xml(document.getElementById('xmlForm')));
 
 schema.onkeyup = function(e) {
   const newschema = e.target.value;
