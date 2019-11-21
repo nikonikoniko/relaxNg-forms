@@ -51,7 +51,7 @@ const prettyXml = (xml) => {
   const Normalizer = require('prismjs/plugins/normalize-whitespace/prism-normalize-whitespace');
   const format = require('xml-formatter');
   const indented = format(xml);
-  console.log(indented);
+  // console.log(indented);
   const high = Prism.highlight(indented, Prism.languages.xml, 'xml');
   const nw = new Normalizer({
     'remove-trailing': true,

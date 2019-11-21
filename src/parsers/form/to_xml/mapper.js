@@ -23,6 +23,7 @@ export const map = (node) =>
     (x = definitions.button) => transforms.nothing,
     (x = definitions.optional) => transforms.nothing,
     (x = definitions.h4) => transforms.nothing,
+    (x = definitions.h5) => transforms.nothing,
     (x = definitions.option) => transforms.nothing,
     (x = definitions.ref) => transforms.nothing,
     (x = definitions.attribute) => transforms.attribute,

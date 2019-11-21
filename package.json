@@ -2,10 +2,11 @@
   "name": "relaxng-forms",
   "version": "0.0.1",
   "description": "convert relaxng schemas into bootstrap webforms",
-  "main": "index.js",
+  "main": "src/parsers/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server --env=dev",
+    "build": "webpack"
   },
   "author": "niko@niko.io",
   "license": "ISC",

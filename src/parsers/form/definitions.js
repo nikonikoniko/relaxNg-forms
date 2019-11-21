@@ -27,6 +27,9 @@ const definitions = {
   h4: {
     tagName: 'H4',
   },
+  h5: {
+    tagName: 'H5',
+  },
   option: {
     tagName: 'OPTION',
   },
