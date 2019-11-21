@@ -86,12 +86,12 @@ const funks = {
   namedElement: (node, inject) => {
     const elname = nodeName(node);
     const opt = isOptionalNode(node.parentNode);
-    return `<element name='${elname}'><h5>${elname}${!opt ? '*' : ''}</h5>${inject.join('')}</element>`;
+    return `<h5>${elname}${!opt ? '*' : ''}</h5><element name='${elname}'>${inject.join('')}</element>`;
   },
   attribute: (node, inject) => {
     const elname = nodeName(node);
     const opt = isOptionalNode(node.parentNode);
-    return `<attribute name="${elname}"><h5>${elname}${!opt ? '*' : ''}</h5>${inject.join('')}</attribute>`;
+    return `<h5>${elname}${!opt ? '*' : ''}</h5><attribute name="${elname}">${inject.join('')}</attribute>`;
   },
   default: (node, inject) => {
     console.log(node);

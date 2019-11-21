@@ -61,6 +61,7 @@ zeroormore element:first-child { display: none; }
 }
 h5{
     margin: 0 auto;
+    margin-left:.6em;
 }
 button {
     text-align:center;
