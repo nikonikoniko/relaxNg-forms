@@ -25,6 +25,9 @@ const definitions = {
   select: {
     tagName: 'SELECT',
   },
+  zeroOrMore: {
+    tagName: 'ZEROORMORE',
+  },
   default: {},
 };
 

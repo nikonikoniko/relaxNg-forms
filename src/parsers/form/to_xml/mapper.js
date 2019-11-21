@@ -14,6 +14,7 @@ export const map = (node) =>
     (x = definitions.textarea) => transforms.formfield,
     (x = definitions.input) => transforms.formfield,
     (x = definitions.select) => transforms.formfield,
+    (x = definitions.zeroOrMore) => transforms.zeroOrMore,
     (x = definitions.namedElement) => transforms.namedElement,
     (x) => transforms.default
   );

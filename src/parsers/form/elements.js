@@ -13,14 +13,14 @@ const tagName = get('tagName');
 
 const choiceValue = get('childNodes.0.nodeValue');
 
-const isOptionalNode = node => matches(node).call(
+const isZeroOrMore = node => matches(node).call(
   {definitions},
-  (x = definitions.optional) => true,
+  (x = definitions.zeroOrMore) => true,
   (x) => false
 );
 module.exports = {
   nodeName,
-  isOptionalNode,
+  isZeroOrMore,
   tagName,
   choiceValue,
 };

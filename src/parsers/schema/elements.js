@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 const {
   get,
+  filter,
+  first,
 } = require('lodash/fp');
 
 const {matches} = require('z');
@@ -10,6 +12,8 @@ const definitions = require('./definitions.js');
 const nodeName = get('attributes.0.value');
 
 const tagName = get('tagName');
+
+const firstElementChild = x => first(filter(get('tagName'), x.childNodes));
 
 const choiceValue = get('childNodes.0.nodeValue');
 
@@ -32,4 +36,5 @@ module.exports = {
   tagName,
   choiceValue,
   inputName,
+  firstElementChild,
 };

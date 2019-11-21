@@ -11,8 +11,7 @@ const {convert} = require('../src/parsers/schema/createDom');
 
 const example = `<start>
 <element name="book" xmlns="http://relaxng.org/ns/structure/1.0">
-   <oneOrMore>
-      <element name="page">
+       <element name="firstpage">
           <element name="number">
             <text/>
           </element>
@@ -22,7 +21,8 @@ const example = `<start>
            </element>
          </optional>
       </element>
-      <element name="page">
+   <oneOrMore>
+            <element name="page">
           <element name="number">
             <text/>
           </element>

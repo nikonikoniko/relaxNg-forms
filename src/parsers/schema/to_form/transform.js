@@ -3,6 +3,7 @@ const {
   get,
   find,
   values,
+  first,
 } = require('lodash/fp');
 
 const {
@@ -11,7 +12,11 @@ const {
   tagName,
   choiceValue,
   inputName,
+  firstElementChild,
 } = require('../elements.js');
+
+// TODO: replacing all of these with react/jsx components would be incredible
+// hyper simple DOM manipulation works for now
 
 const funks = {
   define: (node, inject) =>
@@ -23,18 +28,29 @@ const funks = {
   element: (node, inject) =>
     `<element>${inject.join('<br />')}</element>`
   ,
-  oneOrMore: (node, inject) =>
-    `<oneOrMore> one or more of: <br /> ${inject.join('<br />')}</oneOrMore>` // functionality for this
-  ,
-  zeroOrMore: (node, inject) =>
-    `<zeroOrMore> zero or more of: <br /> ${inject.join('<br />')}</zeroOrMore>` // functionality for this
-  ,
+  clonable: (name) => {
+    return `<button
+     type="button"
+     class="btn btn-primary"
+     onclick="console.log(this.previousSibling);this.parentNode.insertBefore(this.previousSibling.cloneNode(true), this)"
+    >
+     add ${name}
+    </button>`;
+  },
+  oneOrMore: (node, inject) => {
+    const n = nodeName(firstElementChild(node));
+    return `one or more of: <br /> <oneOrMore> ${inject.join('<br />')}${funks.clonable(n)}</oneOrMore>` // functionality for this
+  },
+  zeroOrMore: (node, inject) => {
+    const n = nodeName(firstElementChild(node));
+    return `zero or more of: <br /> <zeroOrMore>${inject.join('<br />')}${funks.clonable(n)}</zeroOrMore>` // functionality for this
+  },
   optional: (node, inject) =>
     `<optional>${inject.join('<br />')}</optional>`
   ,
   text: (node, inject) => {
     const opt = isOptionalNode(node.parentNode.parentNode);
-    return `<textarea class='form-control' ${opt ? 'required' : ''} name='${inputName(node)}'>${inject.join('<br />')}</textarea>`
+    return `<textarea class='form-control' ${!opt ? 'required' : ''} name='${inputName(node)}'>${inject.join('<br />')}</textarea>`;
   },
   ref: (node, inject) => {
     const refFor = nodeName(node);

@@ -3,11 +3,12 @@ const {
   get,
   find,
   values,
+  tail,
 } = require('lodash/fp');
 
 const {
   nodeName,
-  isOptionalNode,
+  isZeroOrMore,
   tagName,
   choiceValue,
   inputName,
@@ -21,6 +22,9 @@ const funks = {
   formfield: (node, inject) => {
     const val = node.value || '';
     return `${val}`;
+  },
+  zeroOrMore: (node, inject) => {
+    return tail(inject).join('');
   },
   default: (node, inject) => {
     console.log([node]);
