@@ -37,7 +37,7 @@ const funks = {
      onclick="console.log(this.previousSibling);this.parentNode.insertBefore(this.previousSibling.cloneNode(true), this)"
     >
      add ${name}
-    </button>`;
+    </button>` ;
   },
   oneOrMore: (node, inject) => {
     const n = nodeName(firstElementChild(node));
@@ -72,10 +72,10 @@ const funks = {
     return `<input type='text' required=${!opt} class='form-control'>${inject.join('<br />')}</input>`;
   },
   decimal: (node, inject) =>
-    `<input class='form-control' name=opacity type=number min=0 max=1 step=0.01></input>${inject.join('<br />')}`
+    `<input class='form-control' name=opacity type=number min=0 max=1 step=0.01></input>${inject.join('')}`
   ,
   int: (node, inject) =>
-    `<input type=number class='form-control'>${inject.join('<br />')}</input`
+    `<input type=number class='form-control'>${inject.join('')}</input>`
   ,
   list: (node, inject) =>
     `<select class='form-control'>${inject.join('<br />')}</select>`

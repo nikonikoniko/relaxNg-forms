@@ -23,7 +23,7 @@ const example = `<start>
    <oneOrMore>
       <element name="page">
           <attribute name="number">
-            <text/>
+             <data type="int" />
           </attribute>
          <element name="text">
             <text/>
@@ -37,7 +37,7 @@ const example = `<start>
    </oneOrMore>
    <zeroOrMore>
       <element name="author">
-        <text/>
+           <data type="token"></data>
       </element>
     </zeroOrMore>
 </element>
