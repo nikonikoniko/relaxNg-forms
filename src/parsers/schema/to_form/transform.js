@@ -32,9 +32,10 @@ const funks = {
   optional: (node, inject) =>
     `<optional>${inject.join('<br />')}</optional>`
   ,
-  text: (node, inject) =>
-    `<textarea class='form-control' name='${inputName(node)}'>${inject.join('<br />')}</textarea>`
-  ,
+  text: (node, inject) => {
+    const opt = isOptionalNode(node.parentNode.parentNode);
+    return `<textarea class='form-control' ${opt ? 'required' : ''} name='${inputName(node)}'>${inject.join('<br />')}</textarea>`
+  },
   ref: (node, inject) => {
     const refFor = nodeName(node);
     const dom = node.ownerDocument;
@@ -48,7 +49,7 @@ const funks = {
   },
   input: (node, inject) => {
     const opt = isOptionalNode(node.parentNode.parentNode);
-    return `${opt ? 'i am optional!!!' : 'required'}<input type='text' class='form-control'>${inject.join('<br />')}</input>`;
+    return `<input type='text' required=${!opt} class='form-control'>${inject.join('<br />')}</input>`;
   },
   decimal: (node, inject) =>
     `<input class='form-control' name=opacity type=number min=0 max=1 step=0.01></input>${inject.join('<br />')}`

@@ -12,6 +12,8 @@ export const map = (node) =>
     {definitions}, // z requires vars in matches to be explicitly passed to the context
     (x = definitions.attribute) => transforms.attribute,
     (x = definitions.textarea) => transforms.formfield,
+    (x = definitions.input) => transforms.formfield,
+    (x = definitions.select) => transforms.formfield,
     (x = definitions.namedElement) => transforms.namedElement,
     (x) => transforms.default
   );

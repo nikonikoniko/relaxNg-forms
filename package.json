@@ -30,9 +30,11 @@
     "eslint-plugin-lodash-fp": "^2.2.0-a1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-vue": "^5.2.2",
+    "js-beautify": "^1.10.2",
     "prismjs": "^1.17.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "xml-formatter": "^1.2.0"
   }
 }

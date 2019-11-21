@@ -16,18 +16,18 @@ const {
 const funks = {
   namedElement: (node, inject) => {
     const elname = nodeName(node);
-    return `<${elname}>${inject.join('\n')}</${elname}>\n`;
+    return `<${elname}>${inject.join('')}</${elname}>`;
   },
   formfield: (node, inject) => {
     const val = node.value || '';
-    return `${val}\n`;
+    return `${val}`;
   },
   default: (node, inject) => {
     console.log([node]);
     console.log(node.tagName);
     console.error(`above nnode element "${node.tagName}" NOT FOUND in definitions!!!!`);
     const val = node.value || '';
-    return inject.join('\n');
+    return inject.join('');
   },
 };
 
