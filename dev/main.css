@@ -17,5 +17,9 @@ h1 {
 #schema{
     height: 100vh;
 }
+textarea
+{
+    font-family: monospace;
+}
 
 zeroormore element:first-child { display: none; }
