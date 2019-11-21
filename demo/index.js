@@ -11,6 +11,16 @@ const {convert} = require('../src/parsers/schema/createDom');
 
 const example = `<start>
 <element name="book" xmlns="http://relaxng.org/ns/structure/1.0">
+         <element name="genre">
+            <list>
+                <choice>
+                    <value>Sci Fi</value>
+                    <value>Textook</value>
+                    <value>Nonfiction</value>
+                    <value>Cooking</value>
+                </choice>
+            </list>
+        </element>
        <element name="firstpage">
          <optional>
            <element name="text">
