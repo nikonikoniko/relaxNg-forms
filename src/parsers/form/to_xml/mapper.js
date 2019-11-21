@@ -16,6 +16,12 @@ export const map = (node) =>
     (x = definitions.select) => transforms.formfield,
     (x = definitions.zeroOrMore) => transforms.zeroOrMore,
     (x = definitions.namedElement) => transforms.namedElement,
+    (x = definitions.br) => transforms.nothing,
+    (x = definitions.div) => transforms.nothing,
+    (x = definitions.oneOrMore) => transforms.nothing,
+    (x = definitions.button) => transforms.nothing,
+    (x = definitions.optional) => transforms.nothing,
+    (x = definitions.form) => transforms.nothing,
     (x) => transforms.default
   );
 

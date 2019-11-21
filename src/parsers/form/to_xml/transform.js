@@ -26,6 +26,8 @@ const funks = {
   zeroOrMore: (node, inject) => {
     return tail(inject).join('');
   },
+  nothing: (node, inject) =>
+    inject.join(''),
   default: (node, inject) => {
     console.log([node]);
     console.log(node.tagName);

@@ -6,6 +6,24 @@ const definitions = {
   definition: {
     tagName: 'define',
   },
+  br: {
+    tagName: 'BR',
+  },
+  div: {
+    tagName: 'DIV',
+  },
+  oneOrMore: {
+    tagName: 'ONEORMORE',
+  },
+  button: {
+    tagName: 'BUTTON',
+  },
+  optional: {
+    tagName: 'OPTIONAL',
+  },
+  form: {
+    tagName: 'FORM',
+  },
   // as an example: if a node has a tagname of 'element' and attr 'name'
   // then we define it as a namedElement
   namedElement: {
