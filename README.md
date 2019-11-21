@@ -1,6 +1,6 @@
 # RelaxNG JS Forms
 
-### relaxNg -> HTML Form -> XML data
+### relaxNg schema -> HTML Form -> XML data
 
 A simple, sane library to parse and transform RelaxNG XML schema files (.rng) into webforms.
 
