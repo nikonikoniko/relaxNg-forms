@@ -37,7 +37,13 @@ const example = `<start>
    </oneOrMore>
    <zeroOrMore>
       <element name="author">
-           <data type="token"></data>
+
+          <attribute name="role">
+           <data type="token" />
+          </attribute>
+          <element name="name">
+           <data type="token" />
+          </element>
       </element>
     </zeroOrMore>
 </element>

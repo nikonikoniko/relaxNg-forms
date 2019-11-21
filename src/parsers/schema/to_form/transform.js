@@ -34,20 +34,27 @@ const funks = {
     return `<button
      type="button"
      class="btn btn-primary"
-     onclick="console.log(this.previousSibling);this.parentNode.insertBefore(this.previousSibling.cloneNode(true), this)"
+     onclick="this.parentNode.insertBefore(this.previousSibling.cloneNode(true), this);this.nextSibling.nextSibling.hidden=false"
     >
      add ${name}
-    </button>` ;
+    </button>
+    <button
+     type="button"
+     class="btn btn-primary"
+     hidden=true
+     onclick="this.previousSibling.previousSibling.previousSibling.offsetParent !== null ? this.previousSibling.previousSibling.previousSibling.remove() : ''"
+    >
+     remove ${name}
+    </button>
+   ` ;
   },
   oneOrMore: (node, inject) => {
     const n = nodeName(firstElementChild(node));
-    return `one or more of: <br /> <oneOrMore> ${inject.join('<br />')}${funks.clonable(n)}</oneOrMore>` // functionality for this
+    return `<span class="oomlabel">one or more of:</span><oneOrMore> ${inject.join('')}${funks.clonable(n)}</oneOrMore>`;
   },
   zeroOrMore: (node, inject) => {
     const n = nodeName(firstElementChild(node));
-    console.log(n);
-    console.log('sdasad');
-    return `zero or more of: <br /> <zeroOrMore>${inject.join('<br />')}${funks.clonable(n)}</zeroOrMore>` // functionality for this
+    return `<span class="zomlabel">zero or more of: </span><zeroOrMore>${inject.join('')}${funks.clonable(n)}</zeroOrMore>`;
   },
   optional: (node, inject) =>
     `<optional>${inject.join('<br />')}</optional>`
@@ -90,12 +97,12 @@ const funks = {
   namedElement: (node, inject) => {
     const elname = nodeName(node);
     const opt = isOptionalNode(node.parentNode);
-    return `<h5>${elname}${!opt ? '*' : ''}</h5><element name='${elname}'>${inject.join('')}</element>`;
+    return `<label>${elname}${!opt ? '*' : ''}</label><element name='${elname}'>${inject.join('')}</element>`;
   },
   attribute: (node, inject) => {
     const elname = nodeName(node);
     const opt = isOptionalNode(node.parentNode);
-    return `<h5>${elname}${!opt ? '*' : ''}</h5><attribute name="${elname}">${inject.join('')}</attribute>`;
+    return `<label>${elname}${!opt ? '*' : ''}</label><attribute name="${elname}">${inject.join('')}</attribute>`;
   },
   default: (node, inject) => {
     console.log(node);

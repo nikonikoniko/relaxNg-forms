@@ -28,6 +28,7 @@ const inputName = (node) => {
 const isOptionalNode = node => matches(node).call(
   {definitions},
   (x = definitions.optional) => true,
+  (x = definitions.zeroOrMore) => true,
   (x) => false
 );
 module.exports = {
