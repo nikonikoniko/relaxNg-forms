@@ -1,11 +1,3 @@
-/* global hljs */
-const {
-  each,
-  reduce,
-  tail,
-} = require('lodash/fp');
-
-
 const {schema2form, form2xml} = require('../src/parsers');
 const {convert} = require('../src/parsers/schema/createDom');
 
@@ -46,7 +38,6 @@ const example = `<start>
 </element>
 </start>
 `;
-const r = schema2form(convert(example));
 
 const schema = document.getElementById('schema');
 const xmlForm = document.getElementById('xmlForm');
@@ -54,14 +45,11 @@ const result = document.getElementById('result');
 
 const form = document.querySelector('#form');
 
-
-
 const prettyXml = (xml) => {
   const Prism = require('prismjs');
   const Normalizer = require('prismjs/plugins/normalize-whitespace/prism-normalize-whitespace');
   const format = require('xml-formatter');
   const indented = format(xml);
-  // console.log(indented);
   const high = Prism.highlight(indented, Prism.languages.xml, 'xml');
   const nw = new Normalizer({
     'remove-trailing': true,
@@ -73,16 +61,13 @@ const prettyXml = (xml) => {
     'remove-initial-line-feed': true,
     'tabs-to-spaces': 4,
   });
-  const normalized = nw.normalize(high, {
-	  // Extra settings
-  });
+  const normalized = nw.normalize(high, {});
   return normalized;
 };
 
 form.addEventListener('keyup', (e) => {
   form.submit();
   const xml = form2xml(form);
-  console.log(xml);
   result.innerHTML = prettyXml(xml);
 });
 form.addEventListener('focusout', (e) => {
@@ -91,11 +76,12 @@ form.addEventListener('focusout', (e) => {
   form.submit();
 });
 
+const initialForm = schema2form(convert(example));
 schema.value = example;
-xmlForm.innerHTML = r;
+xmlForm.innerHTML = initialForm;
 result.innerHTML = prettyXml(form2xml(document.getElementById('xmlForm')));
 
-schema.onkeyup = function(e) {
+schema.onkeyup = (e) => {
   const newschema = e.target.value;
   const r = schema2form(convert(newschema));
   xmlForm.innerHTML = r;
