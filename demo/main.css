@@ -27,7 +27,7 @@ element, attribute {
     display: block;
 }
 
-zeroormore element:first-child { display: none; }
+zeroormore element:first-of-type { display: none; }
 
 
 

@@ -4,6 +4,8 @@ const {
   find,
   values,
   first,
+  tail,
+  compact,
 } = require('lodash/fp');
 
 const {
@@ -43,6 +45,8 @@ const funks = {
   },
   zeroOrMore: (node, inject) => {
     const n = nodeName(firstElementChild(node));
+    console.log(n);
+    console.log('sdasad');
     return `zero or more of: <br /> <zeroOrMore>${inject.join('<br />')}${funks.clonable(n)}</zeroOrMore>` // functionality for this
   },
   optional: (node, inject) =>

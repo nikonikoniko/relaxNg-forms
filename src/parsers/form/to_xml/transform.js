@@ -3,6 +3,7 @@ const {
   get,
   find,
   values,
+  compact,
   tail,
   map,
 } = require('lodash/fp');
@@ -28,7 +29,8 @@ const funks = {
     return `${val}`;
   },
   zeroOrMore: (node, inject) => {
-    return tail(inject).join('');
+    console.log(compact(inject));
+    return tail(compact(inject)).join('');
   },
   attribute: (node, inject) => {
     const n = nodeName(node);

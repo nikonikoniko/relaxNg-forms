@@ -28,6 +28,11 @@ const example = `<start>
          <element name="text">
             <text/>
          </element>
+            <zeroOrMore>
+               <element name="footnote">
+                  <text/>
+               </element>
+          </zeroOrMore>
       </element>
    </oneOrMore>
    <zeroOrMore>
@@ -70,6 +75,7 @@ form.addEventListener('keyup', (e) => {
   const xml = form2xml(form);
   result.innerHTML = prettyXml(xml);
 });
+
 form.addEventListener('focusout', (e) => {
   form.checkValidity();
   // form.reportValidity();
