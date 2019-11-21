@@ -54,7 +54,7 @@ const funks = {
   },
   zeroOrMore: (node, inject) => {
     const n = nodeName(firstElementChild(node));
-    return `<span class="zomlabel">zero or more of: </span><zeroOrMore>${inject.join('')}${funks.clonable(n)}</zeroOrMore>`;
+    return `<span class="zomlabel">zero or more of ${n}: </span><zeroOrMore>${inject.join('')}${funks.clonable(n)}</zeroOrMore>`;
   },
   optional: (node, inject) =>
     `<optional>${inject.join('<br />')}</optional>`
@@ -97,12 +97,12 @@ const funks = {
   namedElement: (node, inject) => {
     const elname = nodeName(node);
     const opt = isOptionalNode(node.parentNode);
-    return `<label>${elname}${!opt ? '*' : ''}</label><element name='${elname}'>${inject.join('')}</element>`;
+    return `<element name='${elname}'><label>${elname}${!opt ? '*' : ''}</label>${inject.join('')}</element>`;
   },
   attribute: (node, inject) => {
     const elname = nodeName(node);
     const opt = isOptionalNode(node.parentNode);
-    return `<label>${elname}${!opt ? '*' : ''}</label><attribute name="${elname}">${inject.join('')}</attribute>`;
+    return `<attribute name="${elname}"><label>${elname}${!opt ? '*' : ''}</label>${inject.join('')}</attribute>`;
   },
   default: (node, inject) => {
     console.log(node);

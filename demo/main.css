@@ -42,7 +42,9 @@ element, attribute {
 
 zeroormore > element:first-of-type { display: none; }
 
-
+input.form-control {
+    width: auto;
+}
 
 
 .titlerow {
@@ -50,6 +52,7 @@ zeroormore > element:first-of-type { display: none; }
     color:white;
     font-family: monospace;
     text-align: center;
+    padding: 1em;
 }
 
 .entrycol textarea {
@@ -93,10 +96,7 @@ h5{
 button {
     text-align:center;
     margin: 1em auto;
-    display: block;
-    width: 40%;
-    margin-left: 30%;
-    margin-right: 30%
+    display: inline-block;
 }
 .workingrow .col-4{
 }

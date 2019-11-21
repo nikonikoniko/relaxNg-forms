@@ -34,7 +34,7 @@ const funks = {
   },
   attribute: (node, inject) => {
     const n = nodeName(node);
-    const v = get('children.0.value', node);
+    const v = get('children.1.value', node);
     node.parentNode.setAttribute(n, v);
     return '';
   },
