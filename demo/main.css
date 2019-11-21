@@ -46,10 +46,12 @@ input.form-control {
     width: auto;
 }
 
-
+a, a:visited, a:hover{
+    color:yellow;
+}
 .titlerow {
     background-color:#333;
-    color:white;
+    color:yellow;
     font-family: monospace;
     text-align: center;
     padding: 1em;
@@ -73,8 +75,10 @@ input.form-control {
     padding-top:2em;
 }
 .formcol {
-    background-color:white;
+    background-color:#444;
     padding-top:2em;
+    color:#ddd;
+    font-family:monospace;
 }
 .resultcol {
     background-color:#333;
