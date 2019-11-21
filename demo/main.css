@@ -11,8 +11,8 @@ body {
 element[name] , attribute[name]{
 	  padding: .5em;
 	  display: block;
-    background-color: rgba(0,0,0,.1);
-    border-bottom: 1px solid rgba(0,0,0,.2);
+    background-color: rgba(255,255,255,.1);
+    border-bottom: 1px solid rgba(255,255,255,.2);
 }
 .oomlabel, .zomlabel{
     margin-top: 2rem;
@@ -25,6 +25,8 @@ label{
 h1 {
     color: maroon;
     margin-left: 40px;
+    background-color:yellow;
+    margin: .2em;
 }
 
 font-size: 12px;
@@ -42,7 +44,7 @@ element, attribute {
 
 zeroormore > element:first-of-type { display: none; }
 
-input.form-control {
+input.form-control, select.form-control, .formcol textarea.form-control {
     width: auto;
 }
 
@@ -54,7 +56,6 @@ a, a:visited, a:hover{
     color:yellow;
     font-family: monospace;
     text-align: center;
-    padding: 1em;
 }
 .inforow{
     font-family: monospace;
@@ -62,8 +63,11 @@ a, a:visited, a:hover{
     color:white;
 }
 
+.t1{
+    background-color: #111;
+}
 .entrycol textarea {
-    background-color:#333 !important;
+    background-color:#111 !important;
     color: white !important;
     border: 0px solid black !important;
     border-radius: 0;
@@ -74,8 +78,9 @@ a, a:visited, a:hover{
     top:0rem;
     padding-top:2em;
 }
+.t2{background-color:#222;}
 .formcol {
-    background-color:#444;
+    background-color:#222;
     padding-top:2em;
     color:#ddd;
     font-family:monospace;
