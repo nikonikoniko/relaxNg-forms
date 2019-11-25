@@ -42,7 +42,6 @@ element, attribute {
     display: block;
 }
 
-zeroormore > element:first-of-type { display: none; }
 
 input.form-control, select.form-control, .formcol textarea.form-control {
     width: auto;

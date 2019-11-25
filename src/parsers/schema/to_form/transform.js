@@ -6,6 +6,9 @@ const {
   first,
   tail,
   compact,
+  set,
+  filter,
+  map,
 } = require('lodash/fp');
 
 const {
@@ -19,6 +22,7 @@ const {
 
 // TODO: replacing all of these with react/jsx components would be incredible
 // hyper simple DOM manipulation works for now
+const filterchildren = filter(get('tagName'));
 
 const funks = {
   define: (node, inject) =>
@@ -54,7 +58,7 @@ const funks = {
   },
   zeroOrMore: (node, inject) => {
     const n = nodeName(firstElementChild(node));
-    return `<span class="zomlabel">zero or more of ${n}: </span><zeroOrMore>${inject.join('')}${funks.clonable(n)}</zeroOrMore>`;
+    return `<span class="zomlabel">zero or more of ${n}: </span><style>zeroOrMore > element:first-of-type{display:none;}</style><zeroOrMore >${inject.join('')}${funks.clonable(n)}</zeroOrMore>`;
   },
   optional: (node, inject) =>
     `<optional>${inject.join('<br />')}</optional>`
