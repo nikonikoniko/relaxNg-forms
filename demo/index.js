@@ -1,3 +1,5 @@
+
+const {debounce, throttle} = require('lodash');
 const {schema2form, form2xml} = require('../src/parsers');
 const {convert} = require('../src/parsers/schema/createDom');
 
@@ -76,10 +78,10 @@ const prettyXml = (xml) => {
   return normalized;
 };
 
-const updateXml = () => {
+const updateXml = debounce(() => {
   const xml = form2xml(form);
   result.innerHTML = prettyXml(xml);
-};
+}, 100);
 
 form.addEventListener('keyup', updateXml);
 form.addEventListener('change', updateXml);
