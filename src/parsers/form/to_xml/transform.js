@@ -28,8 +28,11 @@ const funks = {
     const val = node.value || '';
     return `${val}`;
   },
+  boolean: (node, inject) => {
+    const val = node.checked || false;
+    return `${val}`;
+  },
   zeroOrMore: (node, inject) => {
-    console.log(compact(inject));
     return tail(compact(inject)).join('');
   },
   attribute: (node, inject) => {

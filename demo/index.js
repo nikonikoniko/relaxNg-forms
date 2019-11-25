@@ -76,25 +76,32 @@ const prettyXml = (xml) => {
   return normalized;
 };
 
-form.addEventListener('keyup', (e) => {
-  form.submit();
+const updateXml = () => {
   const xml = form2xml(form);
   result.innerHTML = prettyXml(xml);
-});
+};
 
-form.addEventListener('focusout', (e) => {
-  form.checkValidity();
-  // form.reportValidity();
-  form.submit();
-});
+form.addEventListener('keyup', updateXml);
+form.addEventListener('change', updateXml);
+
 
 const initialForm = schema2form(convert(example));
 schema.value = example;
 xmlForm.innerHTML = initialForm;
 result.innerHTML = prettyXml(form2xml(document.getElementById('xmlForm')));
 
+const addI = () => {
+  const inputs = document.querySelectorAll('input, textarea');
+  inputs.forEach(i => i.addEventListener('focusout', (e) => {
+    i.checkValidity();
+    i.reportValidity();
+  }));
+};
+addI();
+
 schema.onkeyup = (e) => {
   const newschema = e.target.value;
   const r = schema2form(convert(newschema));
   xmlForm.innerHTML = r;
+  addI();
 };

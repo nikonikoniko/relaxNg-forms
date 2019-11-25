@@ -28,6 +28,7 @@ export const map = (node) =>
     (x = definitions.int) => transforms.int,
     (x = definitions.token) => transforms.input,
     (x = definitions.attribute) => transforms.attribute,
+    (x = definitions.boolean) => transforms.boolean,
     (x) => transforms.default
   );
 

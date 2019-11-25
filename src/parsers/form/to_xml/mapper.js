@@ -12,6 +12,7 @@ export const map = (node) =>
     {definitions}, // z requires vars in matches to be explicitly passed to the context
     (x = definitions.attribute) => transforms.attribute,
     (x = definitions.textarea) => transforms.formfield,
+    (x = definitions.boolean) => transforms.boolean,
     (x = definitions.input) => transforms.formfield,
     (x = definitions.data) => transforms.formfield,
     (x = definitions.select) => transforms.formfield,
@@ -25,6 +26,8 @@ export const map = (node) =>
     (x = definitions.h4) => transforms.nothing,
     (x = definitions.h5) => transforms.nothing,
     (x = definitions.option) => transforms.nothing,
+    (x = definitions.label) => transforms.nothing,
+    (x = definitions.span) => transforms.nothing,
     (x = definitions.ref) => transforms.nothing,
     (x = definitions.attribute) => transforms.attribute,
     (x = definitions.form) => transforms.nothing,

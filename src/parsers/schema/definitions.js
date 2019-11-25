@@ -79,6 +79,15 @@ const definitions = {
       },
     },
   },
+  boolean: {
+    tagName: 'data',
+    attributes: {
+      0: {
+        name: 'type',
+        value: 'boolean',
+      },
+    },
+  },
   attribute: {
     tagName: 'attribute',
   },

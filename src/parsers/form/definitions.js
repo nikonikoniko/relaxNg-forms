@@ -39,6 +39,12 @@ const definitions = {
   data: {
     tagName: 'DATA',
   },
+  label: {
+    tagName: 'LABEL',
+  },
+  span: {
+    tagName: 'SPAN',
+  },
   // as an example: if a node has a tagname of 'element' and attr 'name'
   // then we define it as a namedElement
   namedElement: {
@@ -51,6 +57,15 @@ const definitions = {
   },
   textarea: {
     tagName: 'TEXTAREA',
+  },
+  boolean: {
+    tagName: 'INPUT',
+    attributes: {
+      0: {
+        name: 'type',
+        value: 'checkbox',
+      },
+    },
   },
   input: {
     tagName: 'INPUT',

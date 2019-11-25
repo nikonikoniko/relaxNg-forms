@@ -94,6 +94,9 @@ const funks = {
     const choiceVal = choiceValue(node);
     return `<option value='${choiceVal}'>${choiceVal}</option>`;
   },
+  boolean: (node, inject) => {
+    return `<input type=checkbox checked=checked>`;
+  },
   namedElement: (node, inject) => {
     const elname = nodeName(node);
     const opt = isOptionalNode(node.parentNode);
