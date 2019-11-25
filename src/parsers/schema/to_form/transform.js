@@ -22,6 +22,7 @@ const {
 
 // TODO: replacing all of these with react/jsx components would be incredible
 // hyper simple DOM manipulation works for now
+// additionally, returning dom elements instead of strings might be interesting
 const filterchildren = filter(get('tagName'));
 
 const funks = {
