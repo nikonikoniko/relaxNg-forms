@@ -31,6 +31,7 @@ export const map = (node) =>
     (x = definitions.ref) => transforms.nothing,
     (x = definitions.attribute) => transforms.attribute,
     (x = definitions.form) => transforms.nothing,
+    (x = definitions.style) => transforms.nothing,
     (x) => transforms.default
   );
 

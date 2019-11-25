@@ -39,6 +39,9 @@ const definitions = {
   data: {
     tagName: 'DATA',
   },
+  style: {
+    tagName: 'STYLE',
+  },
   label: {
     tagName: 'LABEL',
   },
