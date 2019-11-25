@@ -95,7 +95,6 @@ result.innerHTML = prettyXml(form2xml(document.getElementById('xmlForm')));
 const addI = () => {
   const inputs = document.querySelectorAll('input, textarea');
   inputs.forEach(i => i.addEventListener('focusout', (e) => {
-    console.log('aaaaaaaaaaaaaa')
     i.checkValidity();
     i.reportValidity();
   }));
