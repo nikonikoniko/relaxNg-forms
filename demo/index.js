@@ -1,7 +1,6 @@
 
 const {debounce, throttle} = require('lodash');
 const {schema2form, form2xml} = require('../src/parsers');
-const {convert} = require('../src/parsers/schema/createDom');
 
 const example = `<start>
 <element name="book" xmlns="http://relaxng.org/ns/structure/1.0">
@@ -87,7 +86,7 @@ form.addEventListener('keyup', updateXml);
 form.addEventListener('change', updateXml);
 
 
-const initialForm = schema2form(convert(example));
+const initialForm = schema2form(example);
 schema.value = example;
 xmlForm.innerHTML = initialForm;
 result.innerHTML = prettyXml(form2xml(document.getElementById('xmlForm')));
