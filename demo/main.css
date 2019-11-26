@@ -20,6 +20,7 @@ element[name] , attribute[name]{
 }
 label{
     margin-top:1rem;
+    margin-bottom: 0;
 }
 
 h1 {

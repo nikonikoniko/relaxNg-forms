@@ -7,8 +7,11 @@ import {
 import {
   parseSchema as f2x,
 } from './form/to_xml';
+import {
+  convert,
+} from './schema/createDom';
 
-export const schema2form = s2f;
+export const schema2form = x => s2f(convert(x));
 export const schema2dotnotation = s2d;
 export const form2xml = f2x;
 
