@@ -103,7 +103,7 @@ form.addEventListener('click', addI);
 
 schema.onkeyup = (e) => {
   const newschema = e.target.value;
-  const r = schema2form(convert(newschema));
+  const r = schema2form(newschema);
   xmlForm.innerHTML = r;
   addI();
 };
