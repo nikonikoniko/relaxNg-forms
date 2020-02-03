@@ -2,6 +2,7 @@
 // matches.js
 
 const { matches } = require('z');
+
 const transforms = require('./transform.js');
 const definitions = require('../definitions.js');
 
@@ -16,9 +17,7 @@ export const map = (node) =>
     (x = definitions.oneOrMore) => transforms.oneOrMore,
     (x = definitions.zeroOrMore) => transforms.zeroOrMore,
     (x = definitions.optional) => transforms.optional,
-    (x = {
-      tagName: 'text',
-    }) => transforms.text,
+    (x = definitions.text) => transforms.text,
     (x = definitions.ref) => transforms.ref,
     (x = definitions.list) => transforms.list,
     (x = definitions.choice) => transforms.choice,
@@ -27,6 +26,7 @@ export const map = (node) =>
     (x = definitions.decimal) => transforms.decimal,
     (x = definitions.int) => transforms.int,
     (x = definitions.token) => transforms.input,
+    (x = definitions.string) => transforms.input, // TODO: do the parameter matching on a custom type
     (x = definitions.attribute) => transforms.attribute,
     (x = definitions.boolean) => transforms.boolean,
     (x) => transforms.default

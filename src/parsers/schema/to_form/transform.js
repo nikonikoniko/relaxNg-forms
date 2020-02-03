@@ -77,7 +77,7 @@ const funks = {
     const {parseSchema} = require('./index.js'); // eslint-disable-line
     // the above require must be there otherwise there is a circular
     // dependency.  since the whole lib is recursive by nature, we need it.
-    return `<ref> <h4>${refFor}</h4> <br /> ${parseSchema(definition)} </ref>`;
+    return `<ref> ${parseSchema(definition)} </ref>`;
   },
   input: (node, inject) => {
     const opt = isOptionalNode(node.parentNode.parentNode);
@@ -113,10 +113,9 @@ const funks = {
     return `<attribute name="${elname}"><label>${elname}${!opt ? '*' : ''}</label>${inject.join('')}</attribute>`;
   },
   default: (node, inject) => {
+    console.error(`node element "${node.tagName}" NOT FOUND in definitions: `);
     console.log(node);
-    console.log(node.tagName);
-    console.error(`above node element "${node.tagName}" NOT FOUND in definitions!!!!`);
-    return `?${node.tagName}?${inject.join('')}`;
+    return `${inject.join('')}`;
   },
 };
 

@@ -52,6 +52,15 @@ const definitions = {
       },
     },
   },
+  string: {
+    tagName: 'data',
+    attributes: {
+      0: {
+        name: 'type',
+        value: 'string',
+      },
+    },
+  },
   decimal: {
     tagName: 'data',
     attributes: {
