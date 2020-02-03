@@ -8,7 +8,7 @@ A simple, sane library to parse and transform RelaxNG XML schema files (.rng) in
 
 a simple demo running in the browser is up and running at:
 
-[http://niko.io/projects/relaxngWebForms/demo/](http://niko.io/projects/relaxNg-forms/demo/)
+[http://niko.io/projects/relaxngWebForms/demo/](http://niko.io/projects/relaxngWebForms/demo/)
 
 # dependencies
 
