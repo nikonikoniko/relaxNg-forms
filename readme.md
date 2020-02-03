@@ -18,3 +18,7 @@ this library relies on `xmldom` for parsing xml, `z` for pattern matching, and `
 
 I have only added the elements of relaxNg that I care about -- there is probably still a lot to be added!
 additionally, it will only run properly in modern browsers.
+## browser based development environment
+
+`npm run dev`
+ spins up a webpack bundler at a url
