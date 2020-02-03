@@ -8,7 +8,7 @@ A simple, sane library to parse and transform RelaxNG XML schema files (.rng) in
 
 a simple demo running in the browser is up and running at:
 
-[http://niko.io/projects/relaxNg-forms/demo/](http://niko.io/projects/relaxNg-forms/demo/)
+[http://niko.io/projects/relaxngWebForms/demo/](http://niko.io/projects/relaxNg-forms/demo/)
 
 # dependencies
 
@@ -18,6 +18,7 @@ this library relies on `xmldom` for parsing xml, `z` for pattern matching, and `
 
 I have only added the elements of relaxNg that I care about -- there is probably still a lot to be added!
 additionally, it will only run properly in modern browsers.
+
 ## browser based development environment
 
 `npm run dev`
