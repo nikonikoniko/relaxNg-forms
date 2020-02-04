@@ -27,10 +27,10 @@ const filterchildren = filter(get('tagName'));
 
 const funks = {
   define: (node, inject) =>
-    inject.join('<br />')
+    inject.join('')
   ,
   product: (node, inject) =>
-    `<h1>omg we have a product</h1><product>${inject.join('<br />')}</product>`
+    `<h1>omg we have a product</h1><product>${inject.join('')}</product>`
   ,
   element: (node, inject) =>
     `<element>${inject.join('')}</element>`
@@ -62,11 +62,11 @@ const funks = {
     return `<span class="zomlabel">zero or more of ${n}: </span><style>zeroOrMore > element:first-of-type{display:none;}</style><zeroOrMore >${inject.join('')}${funks.clonable(n)}</zeroOrMore>`;
   },
   optional: (node, inject) =>
-    `<optional>${inject.join('<br />')}</optional>`
+    `<optional>${inject.join('')}</optional>`
   ,
   text: (node, inject) => {
     const opt = isOptionalNode(node.parentNode.parentNode);
-    return `<textarea class='form-control' ${!opt ? 'required' : ''} name='${inputName(node)}'>${inject.join('<br />')}</textarea>`;
+    return `<textarea class='form-control' ${!opt ? 'required' : ''} name='${inputName(node)}'>${inject.join('')}</textarea>`;
   },
   ref: (node, inject) => {
     const refFor = nodeName(node);
@@ -81,7 +81,7 @@ const funks = {
   },
   input: (node, inject) => {
     const opt = isOptionalNode(node.parentNode.parentNode);
-    return `<input type='text' required=${!opt} class='form-control'>${inject.join('<br />')}</input>`;
+    return `<input type='text' required=${!opt} class='form-control'>${inject.join('')}</input>`;
   },
   decimal: (node, inject) =>
     `<input class='form-control' name=opacity type=number min=0 max=1 step=0.01></input>${inject.join('')}`
@@ -90,7 +90,7 @@ const funks = {
     `<input type=number class='form-control'>${inject.join('')}</input>`
   ,
   list: (node, inject) =>
-    `<select class='form-control'>${inject.join('<br />')}</select>`
+    `<select class='form-control'>${inject.join('')}</select>`
   ,
   choice: (node, inject) =>
     inject.join('/n')
