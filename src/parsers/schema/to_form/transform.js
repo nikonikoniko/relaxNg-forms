@@ -40,8 +40,6 @@ const funks = {
      type="button"
      class="btn btn-primary"
      onclick="
-          console.log(this.parentNode)
-          console.log(this.previousSibling)
           this.parentNode.insertBefore(this.previousSibling.cloneNode(true), this);
           this.nextSibling.nextSibling.hidden=false
       "
@@ -102,7 +100,6 @@ const funks = {
          style="cursor:pointer"
          class="toggler"
          onclick="
-              console.log('clicked');
               const hidden = this.nextSibling.hidden
               this.nextSibling.hidden=!hidden;
               this.innerHTML = this.innerHTML.slice(0, -6) + (hidden ? '(hide)' : '(show)');
