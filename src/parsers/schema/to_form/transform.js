@@ -39,7 +39,12 @@ const funks = {
     return `<button
      type="button"
      class="btn btn-primary"
-     onclick="this.parentNode.insertBefore(this.previousSibling.cloneNode(true), this);this.nextSibling.nextSibling.hidden=false"
+     onclick="
+          console.log(this.parentNode)
+          console.log(this.previousSibling)
+          this.parentNode.insertBefore(this.previousSibling.cloneNode(true), this);
+          this.nextSibling.nextSibling.hidden=false
+      "
     >
      add ${name}
     </button>
@@ -47,7 +52,10 @@ const funks = {
      type="button"
      class="btn btn-primary"
      hidden=true
-     onclick="this.previousSibling.previousSibling.previousSibling.offsetParent !== null ? this.previousSibling.previousSibling.previousSibling.remove() : ''"
+     onclick="
+         this.previousSibling.previousSibling.previousSibling.offsetParent !== null ?
+               this.previousSibling.previousSibling.previousSibling.remove() : ''
+     "
     >
      remove ${name}
     </button>
@@ -84,7 +92,24 @@ const funks = {
     const {parseSchema} = require('./index.js'); // eslint-disable-line
     // the above require must be there otherwise there is a circular
     // dependency.  since the whole lib is recursive by nature, we need it.
-    return `<ref> ${parseSchema(definition)} </ref>`;
+    return `
+      <ref>
+      <style>
+         ref > .toggler{display:none}
+         zeroormore > ref > .toggler, oneormore > ref > .toggler {display: block}
+      </style>
+      <div
+         style="cursor:pointer"
+         class="toggler"
+         onclick="
+              console.log('clicked');
+              const hidden = this.nextSibling.hidden
+              this.nextSibling.hidden=!hidden;
+              this.innerHTML = this.innerHTML.slice(0, -6) + (hidden ? '(hide)' : '(show)');
+         "
+       >
+         ${refFor} (hide)</div><div id="toggle${refFor}"> ${parseSchema(definition)}</div>
+      </ref>`;
   },
   input: (node, inject) => {
     const opt = isOptionalNode(node.parentNode.parentNode);
