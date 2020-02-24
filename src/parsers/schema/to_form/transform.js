@@ -59,7 +59,14 @@ const funks = {
   },
   zeroOrMore: (node, inject) => {
     const n = nodeName(firstElementChild(node));
-    return `<span class="zomlabel">zero or more of ${n}: </span><style>zeroOrMore > element:first-of-type{display:none;}</style><zeroOrMore >${inject.join('')}${funks.clonable(n)}</zeroOrMore>`;
+    return ```
+       <span class="zomlabel">zero or more of ${n}: </span>
+       <style>
+         zeroormore > ref:first-of-type{display:none;}
+         zeroormore > element:first-of-type{display:none;}
+       </style>
+       <zeroOrMore >${inject.join('')}${funks.clonable(n)}</zeroOrMore>
+     ```;
   },
   optional: (node, inject) =>
     `<optional>${inject.join('')}</optional>`
