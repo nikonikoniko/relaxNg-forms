@@ -91,7 +91,7 @@ const funks = {
     return `<input type='text' required=${!opt} class='form-control'>${inject.join('')}</input>`;
   },
   decimal: (node, inject) =>
-    `<input class='form-control' name=opacity type=number min=0 max=1 step=0.01></input>${inject.join('')}`
+    `<input class='form-control' name=opacity type=number step=0.01></input>${inject.join('')}`
   ,
   int: (node, inject) =>
     `<input type=number class='form-control'>${inject.join('')}</input>`
