@@ -11,7 +11,7 @@
   "author": "niko@niko.io",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "xmldom": "^0.1.27",
     "z": "^1.0.9"
   },
